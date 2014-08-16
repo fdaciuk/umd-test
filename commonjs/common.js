@@ -1,2 +1,2 @@
-var myModule = require( './module' );
+var myModule = require( '../modules/module' );
 console.log( myModule().init() );

@@ -1,8 +1,14 @@
-requirejs.config({
-    paths: {
+;(function( window ) {
+    'use strict';
 
-    },
-    shim: {
+    requirejs.config({
+        paths : {
+            'jquery' : './lib/jquery',
+            'modules' : '../modules'
+        }
+    });
 
-    }
-});
+    requirejs([ 'modules/module' ], function( myModule ) {
+        console.log( myModule().init() );
+    });
+})();

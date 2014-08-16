@@ -4,21 +4,25 @@
         define( factory );
     }
     else if ( typeof exports === 'object' ) {
-        exports = module.exports = factory;
+        exports = module.exports = factory( root );
     }
     else {
         root.Module = ( root.Module || {} );
-        root.Module.MyModule = factory.bind( null, root, document, jQuery );
+        root.Module.MyModule = factory( root, document, jQuery );
     }
 })( this, function( root, document, $, undefined ) {
     'use strict';
 
-    var $public = {};
-    var $private = {};
+    var MyModule = function() {
+        var $public = {};
+        var $private = {};
 
-    $public.init = function init() {
-        return [ 'init', document, $, undefined ];
+        $public.init = function init() {
+            return [ 'init', document, $, undefined ];
+        };
+
+        return $public;
     };
 
-    return $public;
+    return MyModule;
 });
